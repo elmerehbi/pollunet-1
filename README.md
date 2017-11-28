@@ -1,17 +1,15 @@
-# Présentation
-Reférences: https://github.com/hermenemacs/pollunet et https://github.com/tdeboissiere/DeepLearningImplementations/tree/master/pix2pix
+# Introduction
+pollunet: https://github.com/hermenemacs/pollunet
+pix2pix: https://github.com/tdeboissiere/DeepLearningImplementations/tree/master/pix2pix
+U-net: https://arxiv.org/pdf/1505.04597.pdf
 
 
-Ce dépôt contient une adaptation du réseau de neurones U-net (https://arxiv.org/pdf/1505.04597.pdf), pour une expérimentation sur la détection de pollutions maritimes sur des images satellites (SAR).
+Ce dépôt contient une adaptation du réseau de neurones U-net, pour une expérimentation sur la détection de pollutions maritimes sur des images satellites (SAR).
 Le jeu de données a été fourni par l'entreprise CLS (www.cls.fr/).
-Le but n'est pas de produire un front-end utilisable directement, ce travail s'est restreint au côté expérimental. En conséquence, le code tel quel nécessite une configuration précise (emplacement des fichiers, forme des données...) et n'est pas optimisé (parfois très lent)
 
 # Requirement
 
-L'expérimentation s'est faite sur une machine dotée d'un disque dur de 2T, 64GiB de RAM, un processeur Intel Xeon à 32 coeurs et une carte graphique Nvidia GeForce 1080Ti (11GiB de mémoire).
-Sur des gros jeux de données, la RAM est utilisée jusqu'à 55GiB.
-
-Les packages Python nécessaires sont h5py, keras, matplotlib, numpy, tensorflow-gpu et leur dépendances (calculées par conda).
+h5py, keras, matplotlib, numpy, tensorflow-gpu et leur dépendances.
 
 # Fonctionnement du code
 
@@ -28,7 +26,6 @@ Il a d'abord été séparé en deux dossiers, train et test, test contenant les 
 
 Sur pc-sc-086, les données se présentent sous la forme suivante:
 ```
-/users/local/h17valen/Deep_learning_pollution/:
 |__Database_netcdf: netcdf_dir dans le code
 |  |__train: 170 fichiers pour l'entraînement
 |  |__test: 34 fichier pour les test
@@ -37,12 +34,6 @@ Sur pc-sc-086, les données se présentent sous la forme suivante:
    |__4classes: poids des réseaux entraînés pour reconnaître 4 classes, ensuite modifiés pour 3 classes (commit 'retiré la terre')
 ```
 
-## Résultats
 
-Les résultats sous forme brute sont dans le fichier resultats.
-
-# Entraînement
-
-Les réseaux n'ont pas tous été entraînées sur les même données, les patchs ayant été extraits plusieurs fois, ni de la même façon, certains sur tout, d'autre uniquement sur les pollutions, les derniers sur toutes les pollution plus une partie du reste, qu'on change après plusieurs époques. Cette dernière méthode permettait d'appendre bien les pollutions sous repésentées sans être obligé de leur mettre un poids trop fort, et apprenant ce qui n'est pas de la pollution.
 
 
