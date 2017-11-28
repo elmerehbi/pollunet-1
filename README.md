@@ -1,6 +1,8 @@
 # Introduction
 pollunet: https://github.com/hermenemacs/pollunet
+
 pix2pix: https://github.com/tdeboissiere/DeepLearningImplementations/tree/master/pix2pix
+
 U-net: https://arxiv.org/pdf/1505.04597.pdf
 
 
